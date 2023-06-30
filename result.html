@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voter Eligibility Result</title>
+  <link rel="stylesheet" href="/VoterEligibility.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Eligibility Result</h1>
+    <p><strong>Name:</strong> <span id="resultName"></span></p>
+    <p><strong>Place of Birth:</strong> <span id="resultPlaceOfBirth"></span></p>
+    <p><strong>Current Address:</strong> <span id="resultCurrentAddress"></span></p>
+    <p><strong>Eligibility Status:</strong> <span id="resultEligibilityStatus"></span></p>
+
+    <!-- Back to the Form link -->
+    <a href="/VoterEligibility.html">Back to the Form</a>
+  </div>
+
+  <script>
+    // Retrieve the data from the query string
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const placeOfBirth = urlParams.get('placeOfBirth');
+    const currentAddress = urlParams.get('currentAddress');
+    const eligibilityStatus = urlParams.get('eligibilityStatus');
+
+    // Update the result page with the retrieved data
+    document.getElementById('resultName').textContent = name;
+    document.getElementById('resultPlaceOfBirth').textContent = placeOfBirth;
+    document.getElementById('resultCurrentAddress').textContent = currentAddress;
+    document.getElementById('resultEligibilityStatus').textContent = eligibilityStatus;
+  </script>
+
+  <!-- Responsive styles -->
+  <style>
+    body {
+      font-size: 16px;
+    }
+
+    @media screen and (max-width: 480px) {
+      body {
+        font-size: 14px;
+      }
+
+      .container {
+        max-width: 90%;
+      }
+    }
+  </style>
+</body>
+
+</html>
